@@ -33,7 +33,8 @@ const VehicleSchema = new mongoose.Schema({
     fourWheelDrive: {
         type: Boolean
     }
-
 }, {timestamps: true})
+
+
 
 module.exports.Vehicle = mongoose.model('Vehicle', VehicleSchema)

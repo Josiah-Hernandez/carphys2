@@ -20,9 +20,23 @@ module.exports.createVehicle = (req, res)=>{
         .then(vehicle => res.json(vehicle))
         .catch(err => res.status(400).json(err))
 }
+
+//edit
+module.exports.editVehicles = (req, res)=> {
+    Vehicle.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        .then (vehicle =>res.json(vehicle)) 
+        .catch (err => res.status(400).json(err))
+}
+
 //Delete
 module.exports.deleteVehicle = (req, res)=>{
     Vehicle.deleteOne({_id : req.params.id})
     .then(message=>res.json(message))
     .catch(err => res.status(400).json(err))
     }
+
+module.exports.reminderVehicle = (req, res)=>{
+    Vehicle.reminderVehicle({_id : req.params.id})
+    .then(message=>res.json(message))
+    .catch(err=> res.status(400).json(err))
+}
